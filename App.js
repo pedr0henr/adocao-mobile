@@ -1,8 +1,8 @@
-import { Image, Text, View, StyleSheet } from 'react-native';
+import { Image, Text, View, StyleSheet, ScrollView } from 'react-native';
 // import Constants from 'expo-constants'
 function Card(props) {
   return (
-    <View style={styles.card}>
+    <View style={styles.card}> 
       <Image
         source={{uri: props.animal.capa}}
         style={styles.animal}
@@ -10,6 +10,7 @@ function Card(props) {
       <Text style={{ color: 'darked' }}> {props.animal.nome}</Text>
       <Text style={{ fontSize: 12 }}> {props.animal.raca}</Text>
     </View>
+    
   );
 }
 
@@ -43,12 +44,14 @@ export default function App() {
     
   ]
   return (
+    <ScrollView style={styles.ScrollView}>
       <View style={styles.container}>
         <Text style={{ fontSize: 25, fontWeigth: 'bold' }}> Olá Mundo!!</Text>
       <View style={styles.conteudo}>
        { animais.map(animal => <Card animal={animal} />)}
       </View>
    </View>
+   </ScrollView>
   );
 }
 
@@ -72,6 +75,9 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 10,
     margin: 15
+  },
+  ScrollView: {
+    marginHorizontal: 20,
   },
   animal: {
     resizeMode: 'stretch',
