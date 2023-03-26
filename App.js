@@ -10,6 +10,30 @@ function Card(props) {
       />
       <Text style={styles.textocard}> {props.animal.nome}</Text>
       <Text style={styles.textocard}> {props.animal.raca}</Text>
+      <Button
+        onClick={() => handleDelete(p.id)}
+              icon={
+                <Icon
+                  name="cancel"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                backgroundColor: '#FA497A',
+                borderRadius: 50,
+              }}
+              title="Excluir"
+              titleStyle={{ fontWeight: 'bold', fontSize: 13 }}
+              containerStyle={{
+                marginHorizontal: 0,
+                height: 55,
+                width: 160,
+                marginVertical: 10,
+                paddingBottom:10,
+                paddingTop: 5,
+              }}
+            />
     </View>   
   );
 }
@@ -87,12 +111,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   card: {
-    backgroundColor: 'pink',
+    backgroundColor: '#f5dfea',
     width: '42%',
     height: 260,
     borderRadius: 30,
     margin: 15,
     textAlign: 'center',
+    marginBottom: 40,
   },
   ScrollView: {
     marginHorizontal: 0,
@@ -110,5 +135,6 @@ const styles = StyleSheet.create({
   },
   botao: {
     backgroundColor: 'white',
-  }
+  },
+  
 });
