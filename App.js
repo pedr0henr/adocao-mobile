@@ -1,5 +1,5 @@
 import { Image, Text, View, StyleSheet, ScrollView } from 'react-native';
-import { Button, Icon } from 'expo-constants';
+import { Button, Icon} from '@rneui/themed';
 
 function Card(props) {
   return (
@@ -11,7 +11,6 @@ function Card(props) {
       <Text style={styles.textocard}> {props.animal.nome}</Text>
       <Text style={styles.textocard}> {props.animal.raca}</Text>
       <Button
-        onClick={() => handleDelete(p.id)}
               icon={
                 <Icon
                   name="cancel"
@@ -41,33 +40,37 @@ function Card(props) {
 export default function App() {
   const animais = [
     {
+      id: 1,
       capa: 'https://adotar.com.br/painel/upload/2022-07/animais_imagem871832.jpg', 
       nome: 'Totó', 
       raca: 'Viralata',
     },
     {
+      id: 2,
       capa: 'https://f.i.uol.com.br/fotografia/2013/05/28/281341-600x600-1.jpeg', 
       nome: 'Bob', 
       raca: 'Viralata',
     },
     {
+      id: 3,
       capa: 'https://www.petz.com.br/blog/wp-content/uploads/2021/03/gato-desaparecido-3-1.jpg', 
       nome: 'Biscoito', 
       raca: 'Viralata',
     },
     {
+      id: 4,
       capa: 'https://img.freepik.com/fotos-premium/pobre-gato-em-um-abrigo-privado-da-cidade-de-odessa-gatos-perdidos-e-abandonados-devido-a-guerra-na-ucrania_713948-439.jpg?w=2000', 
       nome: 'Mel', 
       raca: 'Viralata',
     },
     {
+      id: 5,
       capa: 'https://i0.statig.com.br/bancodeimagens/c8/j5/6q/c8j56qaz2yrps8wgrm7bzyyfp.jpg', 
       nome: 'Lili', 
       raca: 'Viralata',
     },
-    
   ]
-  return (
+    return (
     <ScrollView style={styles.ScrollView}>
       <View style={styles.container}>
         <Text style={styles.titulo}> Amigos de Joinville</Text>

@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@rneui/themed": "^4.0.0-rc.7",
     "expo": "^48.0.9",
     "expo-constants": "~14.2.1",
     "expo-status-bar": "~1.4.4",
