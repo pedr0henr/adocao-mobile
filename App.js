@@ -1,41 +1,6 @@
-import { Image, Text, View, StyleSheet, ScrollView } from 'react-native';
-import { Button, Icon} from '@rneui/themed';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
+import Card from './src/Components/Card';
 
-function Card(props) {
-  return (
-    <View style={styles.card}> 
-      <Image
-        source={{uri: props.animal.capa}}
-        style={styles.animal}
-      />
-      <Text style={styles.textocard}> {props.animal.nome}</Text>
-      <Text style={styles.textocard}> {props.animal.raca}</Text>
-      <Button
-              icon={
-                <Icon
-                  name="cancel"
-                  color="#ffffff"
-                  iconStyle={{ marginRight: 10 }}
-                />
-              }
-              buttonStyle={{
-                backgroundColor: '#FA497A',
-                borderRadius: 50,
-              }}
-              title="Excluir"
-              titleStyle={{ fontWeight: 'bold', fontSize: 13 }}
-              containerStyle={{
-                marginHorizontal: 0,
-                height: 55,
-                width: 160,
-                marginVertical: 10,
-                paddingBottom:10,
-                paddingTop: 5,
-              }}
-            />
-    </View>   
-  );
-}
 
 export default function App() {
   const animais = [
@@ -75,14 +40,16 @@ export default function App() {
       <View style={styles.container}>
         <Text style={styles.titulo}> Amigos de Joinville</Text>
         <Text style={styles.titulo2}> Animais Disponíveis:</Text>
-            <View style={styles.conteudo}>
-       { animais.map(animal => <Card animal={animal} />)}
-       
+        <View style={styles.conteudo}>
+          { 
+            animais.map(animal => <Card animal={animal} key={animal.id} />)
+          }
+        </View>
       </View>
-   </View>
-   </ScrollView>
+    </ScrollView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
