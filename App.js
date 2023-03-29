@@ -3,53 +3,53 @@ import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Card from './src/Components/Card';
 
 
-  const animais = [
+  const musicas = [
     {
       id: 1,
-      capa: 'https://adotar.com.br/painel/upload/2022-07/animais_imagem871832.jpg', 
-      nome: 'Totó', 
-      raca: 'Viralata',
+      capa: 'https://i.scdn.co/image/ab67616d0000b2734c8247d17da4bf1110df138f', 
+      nome: 'Pagodeiro', 
+      estilo: 'Pagofunk',
     },
     {
       id: 2,
-      capa: 'https://f.i.uol.com.br/fotografia/2013/05/28/281341-600x600-1.jpeg', 
-      nome: 'Bob', 
-      raca: 'Viralata',
+      capa: 'https://rapgol.com.br/wp-content/uploads/2022/07/l7.png', 
+      nome: 'Ai preto', 
+      estilo: 'Funk',
     },
     {
       id: 3,
-      capa: 'https://www.petz.com.br/blog/wp-content/uploads/2021/03/gato-desaparecido-3-1.jpg', 
-      nome: 'Biscoito', 
-      raca: 'Viralata',
+      capa: 'https://i1.sndcdn.com/artworks-jGa62Jxsp1yjJwyz-98f4tQ-t500x500.jpg', 
+      nome: 'Ai calica', 
+      estilo: 'Trap',
     },
     {
       id: 4,
-      capa: 'https://img.freepik.com/fotos-premium/pobre-gato-em-um-abrigo-privado-da-cidade-de-odessa-gatos-perdidos-e-abandonados-devido-a-guerra-na-ucrania_713948-439.jpg?w=2000', 
-      nome: 'Mel', 
-      raca: 'Viralata',
+      capa: 'https://i.ytimg.com/vi/wFBp_PHXrf4/0.jpg', 
+      nome: 'Felina', 
+      estilo: 'Trap',
     },
     {
       id: 5,
-      capa: 'https://i0.statig.com.br/bancodeimagens/c8/j5/6q/c8j56qaz2yrps8wgrm7bzyyfp.jpg', 
-      nome: 'Lili', 
-      raca: 'Viralata',
+      capa: 'https://i1.sndcdn.com/artworks-MpsVPya9wX3F6C9Q-t4Hz9A-t500x500.jpg', 
+      nome: 'Iphone Branco', 
+      estilo: 'Trap',
     },
   ]
 
-const ListaAnimais = () => {
-  const [animaisList, setAnimaisList] = useState(animais);
+const ListaMusicas = () => {
+  const [musicasList, setMusicasList] = useState(musicas);
 
   const handleRemove = (index) => {
-    const newAnimaisList = [...animaisList];
-    newAnimaisList.splice(index, 1);
-    setAnimaisList(newAnimaisList);
+    const newMusicasList = [...musicasList];
+    newMusicasList.splice(index, 1);
+    setMusicasList(newMusicasList);
   };
 return (
   
   <ScrollView style={styles.scroll}>
       <View style={styles.conteudo}>
-        {animaisList.map((animal, index) => (
-          <Card key={index} animal={animal} onRemove={() => handleRemove(index)} />
+        {musicasList.map((musica, index) => (
+          <Card key={index} musica={musica} onRemove={() => handleRemove(index)} />
         ))}
       </View>
     </ScrollView>
@@ -60,9 +60,9 @@ export default function App() {
     return (
     <ScrollView style={styles.ScrollView}>
       <View style={styles.container}>
-        <Text style={styles.titulo}> Amigos de Joinville</Text>
-        <Text style={styles.titulo2}> Animais Disponíveis:</Text>
-          <ListaAnimais/>
+        <Text style={styles.titulo}> Musicas </Text>
+        <Text style={styles.titulo2}> Musicas Disponíveis:</Text>
+          <ListaMusicas/>
       </View>
     </ScrollView>
   );
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
 
   titulo: {
-    backgroundColor: '#FA497A',
+    backgroundColor: 'black', 
     fontWeight: 'bold',
     fontSize: 30,
     textAlign: 'center',
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
   },
 
-  animal: {
+  musica: {
     resizeMode: 'stretch',
     width: '87%',
     margin: 10,
