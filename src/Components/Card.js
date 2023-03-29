@@ -1,40 +1,23 @@
-import { Image, Text, View, StyleSheet } from 'react-native'
+import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { Button, Icon } from '@rneui/themed';
+import { AntDesign } from '@expo/vector-icons';
 
-export default function Card(props) {
+const Animal = ({ animal, onRemove }) => {
     
     return (
       <View style={styles.card}> 
         <Image
-          source={{uri: props.animal.capa}}
+          source={{uri: animal.capa}}
           style={styles.animal}
         />
-        <Text style={styles.textocard}> {props.animal.nome}</Text>
-        <Text style={styles.textocard}> {props.animal.raca}</Text>
-        <Button
-                icon={
-                  <Icon
-                    name="cancel"
-                    color="#ffffff"
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                buttonStyle={{
-                  backgroundColor: '#FA497A',
-                  borderRadius: 50,
-                }}
-                title="Excluir"
-                titleStyle={{ fontWeight: 'bold', fontSize: 13 }}
-                containerStyle={{
-                  marginHorizontal: 0,
-                  height: 55,
-                  width: 160,
-                  marginVertical: 10,
-                  paddingBottom:10,
-                  paddingTop: 5,
-                }}
-              />
-      </View>   
+        <Text style={styles.textocard}> {animal.nome}</Text>
+        <Text style={styles.textocard}> {animal.raca}</Text>
+        <TouchableOpacity onPress={onRemove}>
+        <AntDesign style={styles.delete} name="delete" size={24} color="red" />
+        </TouchableOpacity>
+        
+      </View>  
+
     );
   }
 
@@ -61,4 +44,5 @@ export default function Card(props) {
     },
     
   });
-  
+
+export default Animal;

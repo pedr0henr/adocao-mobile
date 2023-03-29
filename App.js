@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Card from './src/Components/Card';
 
 
-export default function App() {
   const animais = [
     {
       id: 1,
@@ -35,15 +35,33 @@ export default function App() {
       raca: 'Viralata',
     },
   ]
+
+const ListaAnimais = () => {
+  const [animaisList, setAnimaisList] = useState(animais);
+
+  const handleRemove = (index) => {
+    const newAnimaisList = [...animaisList];
+    newAnimaisList.splice(index, 1);
+    setAnimaisList(newAnimaisList);
+  };
+return (
+    <ScrollView style={styles.scroll}>
+      {animaisList.map((animal, index) => (
+        <Card key={index} animal={animal} onRemove={() => handleRemove(index)} />
+      ))}
+    </ScrollView>
+  );
+};
+
+export default function App() {
     return (
     <ScrollView style={styles.ScrollView}>
       <View style={styles.container}>
         <Text style={styles.titulo}> Amigos de Joinville</Text>
         <Text style={styles.titulo2}> Animais Disponíveis:</Text>
         <View style={styles.conteudo}>
-          { 
-            animais.map(animal => <Card animal={animal} key={animal.id} />)
-          }
+          
+          <ListaAnimais/>
         </View>
       </View>
     </ScrollView>
