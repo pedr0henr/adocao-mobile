@@ -45,10 +45,13 @@ const ListaAnimais = () => {
     setAnimaisList(newAnimaisList);
   };
 return (
-    <ScrollView style={styles.scroll}>
-      {animaisList.map((animal, index) => (
-        <Card key={index} animal={animal} onRemove={() => handleRemove(index)} />
-      ))}
+  
+  <ScrollView style={styles.scroll}>
+      <View style={styles.conteudo}>
+        {animaisList.map((animal, index) => (
+          <Card key={index} animal={animal} onRemove={() => handleRemove(index)} />
+        ))}
+      </View>
     </ScrollView>
   );
 };
@@ -59,15 +62,11 @@ export default function App() {
       <View style={styles.container}>
         <Text style={styles.titulo}> Amigos de Joinville</Text>
         <Text style={styles.titulo2}> Animais Disponíveis:</Text>
-        <View style={styles.conteudo}>
-          
           <ListaAnimais/>
-        </View>
       </View>
     </ScrollView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -81,8 +80,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
-
   },
+
   titulo: {
     backgroundColor: '#FA497A',
     fontWeight: 'bold',
@@ -91,6 +90,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     color: 'white',
   },
+
   titulo2: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -98,18 +98,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 10,
   },
-  card: {
-    backgroundColor: '#f5dfea',
-    width: '42%',
-    height: 260,
-    borderRadius: 30,
-    margin: 15,
-    textAlign: 'center',
-    marginBottom: 40,
-  },
+
   ScrollView: {
     marginHorizontal: 0,
   },
+
   animal: {
     resizeMode: 'stretch',
     width: '87%',
@@ -117,12 +110,14 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius:30,
   },
+
   textocard: {
     textAlign: 'center',
     fontSize: 12,
   },
+
   botao: {
     backgroundColor: 'white',
-  },
-  
+  }, 
+
 });
